@@ -5,6 +5,7 @@ export const createProjectMutation = `
 				id
 				title
 				description
+        components
 				createdBy {
 					email
 					name
@@ -21,6 +22,7 @@ export const updateProjectMutation = `
 				id
 				title
 				description
+        components
 				createdBy {
 					email
 					name
@@ -49,6 +51,7 @@ export const createUserMutation = `
 				githubUrl
 				linkedinUrl
 				id
+        isVerified
 			}
 		}
 	}
@@ -72,6 +75,7 @@ export const projectsQuery = `
           id
           image
           category
+          components
           createdBy {
             id
             email
@@ -93,6 +97,7 @@ export const getProjectByIdQuery = `
       image
       liveSiteUrl
       githubUrl
+      components
       category
       createdBy {
         id
@@ -114,6 +119,7 @@ export const getUserQuery = `
       description
       githubUrl
       linkedinUrl
+      isVerified
     }
   }
 `;
@@ -132,6 +138,7 @@ export const getAllProjectsQuery = `
           githubUrl
           description
           liveSiteUrl
+          components
           id
           image
           category
@@ -157,6 +164,7 @@ export const getProjectsOfUserQuery = `
       avatarUrl
       githubUrl
       linkedinUrl
+      components
       projects(last: $last) {
         edges {
           node {
