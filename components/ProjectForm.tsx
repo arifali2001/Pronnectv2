@@ -93,7 +93,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
     <form onSubmit={handleFormSubmit} className="flexStart form">
       <div className="flexStart form_image-container">
         <label htmlFor="poster" className="flexCenter form_image-label">
-          {!form.image && "Choose a poster for your project"}
+          {!form.image && "Upload Thumbnail for your project"}
         </label>
         <input
           id="image"
@@ -112,45 +112,6 @@ const ProjectForm = ({ type, session, project }: Props) => {
           />
         )}
       </div>
-
-      <FormField
-        title="Title"
-        state={form.title}
-        placeholder="Flexibble"
-        setState={(value) => handleStateChange("title", value)}
-      />
-
-      <FormField
-        title="Description"
-        state={form.description}
-        placeholder="Showcase and discover remarkable developer projects."
-        isTextArea
-        setState={(value) => handleStateChange("description", value)}
-      />
-      <FormField
-        title="Components"
-        state={form.components}
-        placeholder="Showcase and discover remarkable developer projects."
-        isTextArea
-        setState={(value) => handleStateChange("components", value)}
-      />
-
-      <FormField
-        type="url"
-        title="Website URL"
-        state={form.liveSiteUrl}
-        placeholder="https://jsmastery.pro"
-        setState={(value) => handleStateChange("liveSiteUrl", value)}
-      />
-
-      <FormField
-        type="url"
-        title="GitHub URL"
-        state={form.githubUrl}
-        placeholder="https://github.com/adrianhajdin"
-        setState={(value) => handleStateChange("githubUrl", value)}
-      />
-
       <CustomMenu
         title="Category"
         state={form.category}
@@ -158,12 +119,50 @@ const ProjectForm = ({ type, session, project }: Props) => {
         setState={(value) => handleStateChange("category", value)}
       />
 
+      <FormField
+        title="Title"
+        state={form.title}
+        placeholder="Enter Title"
+        setState={(value) => handleStateChange("title", value)}
+      />
+
+      <FormField
+        title="Description"
+        state={form.description}
+        placeholder="Project's Description"
+        isTextArea
+        setState={(value) => handleStateChange("description", value)}
+      />
+      <FormField
+        title="Components"
+        state={form.components}
+        placeholder="Mentions Components/APIs with their best buy links or Type N/A"
+        isTextArea
+        setState={(value) => handleStateChange("components", value)}
+      />
+
+      <FormField
+        type="url"
+        title="Live URL"
+        state={form.liveSiteUrl}
+        placeholder="Live URL (example.com) (if exists, else fill 'N/A')"
+        setState={(value) => handleStateChange("liveSiteUrl", value)}
+      />
+
+      <FormField
+        type="url"
+        title="GitHub URL"
+        state={form.githubUrl}
+        placeholder="Github URL (if exists, else type 'N/A')"
+        setState={(value) => handleStateChange("githubUrl", value)}
+      />
+
       <div className="flexStart w-full">
         <Button
           title={
             submitting
-              ? `${type === "create" ? "Creating" : "Editing"}`
-              : `${type === "create" ? "Create" : "Edit"}`
+              ? `${type === "create" ? "Hosting" : "Editing"}`
+              : `${type === "create" ? "Host" : "Edit"}`
           }
           type="submit"
           leftIcon={submitting ? "" : "/plus.svg"}
